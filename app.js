@@ -8,9 +8,9 @@ const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
-const savedUserName = localStorage.getItem(USERNAME_KEY);
 
-function paintGreetings(username) {
+function paintGreetings() {
+  const username = localStorage.getItem("username");
   greeting.classList.remove(HIDDEN_CLASSNAME);
   greeting.innerText = `Hello, ${username}`;
 }
@@ -18,18 +18,15 @@ function paintGreetings(username) {
 function onLoginSubmit(event) {
   event.preventDefault(); //브라우저의 모든 행동X(ex. submit후 새로고침)
 
-  let value = loginInput.value;
-  const username = value;
-  localStorage.setItem(USERNAME_KEY,username);
-
+  localStorage.setItem(USERNAME_KEY,loginInput.value);
   loginForm.classList.add(HIDDEN_CLASSNAME);
-  paintGreetings(username);
+  paintGreetings();
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+const savedUserName = localStorage.getItem(USERNAME_KEY);
 
 if(Boolean(savedUserName)){
-  paintGreetings(savedUserName);
+  paintGreetings();
 } else{
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
