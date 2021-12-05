@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Momentum</title>
 </head>
 
@@ -13,13 +13,13 @@
 
   <form id="login-form" class="hidden">
     <input required maxlength="15" type="text" placeholder="What is your name?" required />
-    <input type="submit" value="Log In" />
+    <input type="submit" value="Log In" class="login-button" />
   </form>
 
   <h2 id="clock">00:00:00</h2>
   <h1 id="greeting" class="hidden"></h1>
 
-  <form id="todo-form">
+  <form id="todo-form" class="hidden">
     <input type="text" placeholder="Write a To Do and Press" />
   </form>
   <ul id="todo-list"></ul>
@@ -33,6 +33,8 @@
     <span></span>
     <span></span>
   </div>
+
+  <div class="background_cover"></div>
 
   <script src="./js/greetings.js"></script>
   <script src="./js/clock.js"></script>
